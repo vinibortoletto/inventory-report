@@ -2,10 +2,10 @@ from datetime import datetime
 
 
 class SimpleReport:
-    def __get_oldest_manufacturing_date(product_list):
+    def get_oldest_manufacturing_date(product_list):
         return min(product["data_de_fabricacao"] for product in product_list)
 
-    def __closest_expiration_date(product_list):
+    def closest_expiration_date(product_list):
         today = datetime.now().strftime("%Y-%m-%d")
 
         return min(
@@ -14,7 +14,7 @@ class SimpleReport:
             if product["data_de_validade"] >= today
         )
 
-    def __get_company_with_more_products(product_list):
+    def get_company_with_more_products(product_list):
         company_counter = dict()
 
         for product in product_list:
@@ -29,13 +29,13 @@ class SimpleReport:
 
     @classmethod
     def generate(self, product_list):
-        oldest_manufacturing_date = self.__get_oldest_manufacturing_date(
+        oldest_manufacturing_date = self.get_oldest_manufacturing_date(
             product_list
         )
 
-        oldest_expiration_date = self.__closest_expiration_date(product_list)
+        oldest_expiration_date = self.closest_expiration_date(product_list)
 
-        company_with_more_products = self.__get_company_with_more_products(
+        company_with_more_products = self.get_company_with_more_products(
             product_list
         )
 
