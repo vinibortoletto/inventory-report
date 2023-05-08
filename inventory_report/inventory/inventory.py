@@ -39,7 +39,7 @@ class Inventory:
             product_list = self.get_content_from_csv(path)
         elif file_type == "json":
             product_list = self.get_content_from_json(path)
-        elif file_type == "xml":
+        else:
             product_list = self.get_content_from_xml(path)
 
         report = ""
