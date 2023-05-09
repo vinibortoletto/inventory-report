@@ -8,6 +8,7 @@ class CsvImporter(Importer):
             file_content = csv.DictReader(file)
             return [row for row in file_content]
 
+    @staticmethod
     def import_data(file_name):
         file_type = file_name.split(".")[1]
 
